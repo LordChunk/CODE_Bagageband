@@ -1,12 +1,7 @@
-﻿using CODE_Bagageband.Model;
+﻿using DPINT_Wk3_Observer.Model;
 using GalaSoft.MvvmLight;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CODE_Bagageband.ViewModel
+namespace DPINT_Wk3_Observer.Presentation.ViewModel
 {
     public class VluchtViewModel : ViewModelBase
     {

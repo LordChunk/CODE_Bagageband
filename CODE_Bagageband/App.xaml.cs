@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
-namespace CODE_Bagageband
+namespace DPINT_Wk3_Observer
 {
     /// <summary>
     /// Interaction logic for App.xaml

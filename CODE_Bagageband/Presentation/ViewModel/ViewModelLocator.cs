@@ -12,14 +12,11 @@
   See http://www.galasoft.ch/mvvm
 */
 
-using CODE_Bagageband.Model;
-using GalaSoft.MvvmLight;
+using DPINT_Wk3_Observer.Model;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
-using System.Collections;
-using System.Collections.Generic;
 
-namespace CODE_Bagageband.ViewModel
+namespace DPINT_Wk3_Observer.Presentation.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the

@@ -1,14 +1,10 @@
 using System;
+using System.Collections.ObjectModel;
+using DPINT_Wk3_Observer.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using CODE_Bagageband.Model;
-using Microsoft.Practices.ServiceLocation;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.Collections.ObjectModel;
 
-namespace CODE_Bagageband.ViewModel
+namespace DPINT_Wk3_Observer.Presentation.ViewModel
 {
     /// <summary>
     /// This class contains properties that the main View can data bind to.

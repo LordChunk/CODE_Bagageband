@@ -1,4 +1,4 @@
-﻿<Window x:Class="CODE_Bagageband.MainWindow"
+﻿<Window x:Class="DPINT_Wk3_Observer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:CODE_Bagageband"

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CODE_Bagageband.Model
+namespace DPINT_Wk3_Observer.Model
 {
     public class Aankomsthal
     {

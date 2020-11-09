@@ -8,10 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CODE_Bagageband.Properties {
-    using System;
-    
-    
+namespace DPINT_Wk3_Observer.Properties {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
