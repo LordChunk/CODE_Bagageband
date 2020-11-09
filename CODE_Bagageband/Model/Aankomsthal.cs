@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DPINT_Wk3_Observer.Model
 {
-    public class Aankomsthal
+    public class Aankomsthal : IObserver<Bagageband>
     {
         // TODO: Hier een ObservableCollection van maken, dan weten we wanneer er vluchten bij de wachtrij bij komen of afgaan.
         public List<Vlucht> WachtendeVluchten { get; private set; }
@@ -20,6 +21,8 @@ namespace DPINT_Wk3_Observer.Model
             Bagagebanden.Add(new Bagageband("Band 2", 60));
             // TODO: Als bagageband Observable is, gaan we subscriben op band 3 zodat we updates binnenkrijgen.
             Bagagebanden.Add(new Bagageband("Band 3", 90));
+
+            Bagagebanden.ForEach(band => band.Subscribe(this));
         }
 
         public void NieuweInkomendeVlucht(string vertrokkenVanuit, int aantalKoffers)
@@ -32,19 +35,32 @@ namespace DPINT_Wk3_Observer.Model
             WachtendeVluchten.Add(new Vlucht(vertrokkenVanuit, aantalKoffers));
         }
 
-        public void WachtendeVluchtenNaarBand()
+        public void WachtendeVluchtenNaarBand(Bagageband band)
         {
-            while(Bagagebanden.Any(bb => bb.AantalKoffers == 0) && WachtendeVluchten.Any())
-            {
-                // TODO: Straks krijgen we een update van een bagageband. Dan hoeven we alleen maar te kijken of hij leeg is.
-                // Als dat zo is kunnen we vrijwel de hele onderstaande code hergebruiken en hebben we geen while meer nodig.
-                
-                Bagageband legeBand = Bagagebanden.FirstOrDefault(bb => bb.AantalKoffers == 0);
-                Vlucht volgendeVlucht = WachtendeVluchten.FirstOrDefault();
-                WachtendeVluchten.RemoveAt(0);
 
-                legeBand.HandelNieuweVluchtAf(volgendeVlucht);
+            var volgendeVlucht = WachtendeVluchten.FirstOrDefault();
+            WachtendeVluchten.RemoveAt(0);
+
+            band.HandelNieuweVluchtAf(volgendeVlucht);
+
+        }
+
+        public void OnNext(Bagageband band)
+        {
+            if (band.AantalKoffers == 0)
+            {
+                WachtendeVluchtenNaarBand(band);
             }
+        }
+
+        public void OnError(Exception error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
         }
     }
 }

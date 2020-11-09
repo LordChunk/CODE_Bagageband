@@ -1,9 +1,10 @@
-﻿using DPINT_Wk3_Observer.Model;
+﻿using System;
+using DPINT_Wk3_Observer.Model;
 using GalaSoft.MvvmLight;
 
 namespace DPINT_Wk3_Observer.Presentation.ViewModel
 {
-    public class BagagebandViewModel : ViewModelBase
+    public class BagagebandViewModel : ViewModelBase, IObserver<Bagageband>
     {
         private string _vluchtVertrokkenVanuit;
         public string VluchtVertrokkenVanuit
@@ -29,6 +30,7 @@ namespace DPINT_Wk3_Observer.Presentation.ViewModel
         public BagagebandViewModel(Bagageband band)
         {
             Update(band);
+            band.Subscribe(this);
         }
 
         public void Update(Bagageband value)
@@ -37,5 +39,21 @@ namespace DPINT_Wk3_Observer.Presentation.ViewModel
             AantalKoffers = value.AantalKoffers;
             Naam = value.Naam;
         }
+
+        /// <summary>
+        /// Deze gaan we niet gebruiken
+        /// </summary>
+        public void OnCompleted() {}
+        /// <summary>
+        /// Deze gaan we niet gebruiken
+        /// </summary>
+        /// <param name="error"></param>
+        public void OnError(Exception error) {}
+
+        /// <summary>
+        /// Als er een update is wordt deze aangeroepen, je krijgt hier heel het object
+        /// </summary>
+        /// <param name="value"></param>
+        public void OnNext(Bagageband value) => Update(value);
     }
 }

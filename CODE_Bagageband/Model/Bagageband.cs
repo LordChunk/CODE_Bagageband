@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
+using DPINT_Wk3_Observer.Process;
 
 namespace DPINT_Wk3_Observer.Model
 {
-    public class Bagageband
+    public class Bagageband : Observable<Bagageband>
     {
         public string Naam { get; set; }
         private int _aantalKoffersPerMinuut;
@@ -35,6 +36,7 @@ namespace DPINT_Wk3_Observer.Model
             _huidigeVluchtTimer.Start();
 
             // TODO: We moeten het laten weten dat we een update hebben!
+            Notify(this);
         }
 
         private void KofferVanBandGehaald(object sender, EventArgs e)
@@ -48,6 +50,7 @@ namespace DPINT_Wk3_Observer.Model
             }
 
             // TODO: We moeten het laten weten dat we een update hebben!
+            Notify(this);
         }
     }
 }
